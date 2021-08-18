@@ -1,7 +1,10 @@
 import React, { useEffect, useState } from 'react';
+import fetchData from './api/fetchData';
+import { url } from './api/utilities';
 import Map from './components/Map/Map';
 import UncontrolledLottie from './components/UncontrolledLottie';
 import { useWindowSize } from './hooks/useWindowSize';
+import { isMobile } from 'react-device-detect'
 
 const handleClick = (e: any, countryCode: any) => { };
 
@@ -16,11 +19,12 @@ function App() {
 	let tableData = [];
 	let topRate = [];
 
-	const handlePageChange = (number) => {
+	const handlePageChange = (number: number) => {
 		setCurrentPage(number); // set currentPage number, to reset it from the previous selected.
 	};
 
 	useEffect(() => {
+		// @ts-ignore
 		const resultFetch = fetchData(url).then((res) => setLocation(res));
 	}, [count]);
 
@@ -38,15 +42,11 @@ function App() {
 			return (
 				<div>
 					<div className="topRateAndMap">
-						<TopRate topRate={topRate} size={size} />
 						<Map
 							handleClick={handleClick}
 							mapData={mapData}
 							size={size}
 						/>
-					</div>
-					<div className="relatedApp">
-						<Related />
 					</div>
 				</div>
 			);
@@ -63,6 +63,7 @@ function App() {
 			</div>
 		);
 	} else {
+		// @ts-ignore
 		return <UncontrolledLottie size={size} />;
 	}
 }

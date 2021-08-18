@@ -2,7 +2,6 @@ import React from "react";
 // @ts-ignore
 import { VectorMap } from "react-jvectormap";
 import "./map.css";
-import { useWindowSize } from "../../hooks/useWindowSize";
 
 export default function Map(props: any) {
     return (
@@ -10,10 +9,10 @@ export default function Map(props: any) {
             <VectorMap
                 map={"world_mill"}
                 backgroundColor="transparent" //change it to ocean blue: #0077be
-                zoomOnScroll={false}
+                zoomOnScroll={true}
                 containerStyle={{
                     width: "100%",
-                    height: "400px",
+                    height: "500px",
                 }}
                 onRegionClick={props.handleClick} //gets the country code
                 containerClassName="map"
@@ -34,7 +33,7 @@ export default function Map(props: any) {
                     },
                     selectedHover: {},
                 }}
-                regionsSelectable={false}
+                regionsSelectable={true}
                 onRegionTipShow={(e: any, el: any, code: any) => {
                     const data = props.mapData[code];
                     return el.html(
