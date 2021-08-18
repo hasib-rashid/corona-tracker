@@ -31,9 +31,9 @@ function fillmapDeaths(mapDeaths: any, item: any) {
 
 function fillmapRecoveries(mapRecoveries: any, item: any) {
     if (mapRecoveries[item.countryInfo.iso2]) {
-        mapRecoveries[item.countryInfo.iso2] += item.recoveries;
+        mapRecoveries[item.countryInfo.iso2] += item.recovered;
     } else {
-        mapRecoveries[item.countryInfo.iso2] = item.recoveries;
+        mapRecoveries[item.countryInfo.iso2] = item.recovered;
     }
 }
 

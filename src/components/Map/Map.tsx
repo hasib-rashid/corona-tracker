@@ -35,14 +35,18 @@ export default function Map(props: any) {
                 }}
                 regionsSelectable={true}
                 onRegionTipShow={(e: any, el: any, code: any) => {
-                    const data = props.mapCases[code];
+                    const dataCases = props.mapCases[code];
+                    const dataDeaths = props.mapDeaths[code];
+                    const dataRecoveries = props.mapRecoveries[code];
                     console.log(props)
                     return el.html(
                         "<b>" +
                         el.html() +
                         "</b></br>" +
                         "<b> confirmed cases: </b>" +
-                        (data ? data : 0)
+                        (dataCases ? dataCases : 0) + "</br>" +
+                        (dataDeaths ? dataDeaths : 0) + "</br>" +
+                        (dataRecoveries ? dataRecoveries : 0) + "</br>"
                     );
                 }}
                 series={{
