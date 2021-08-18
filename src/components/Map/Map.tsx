@@ -41,8 +41,7 @@ export default function Map(props: any) {
                         "<b>" +
                         el.html() +
                         "</b></br>" +
-                        "<b> confirmed cases: </b>" +
-                        (data ? data : 0)
+                        "<b> confirmed cases: </b>"
                     );
                 }}
                 series={{
