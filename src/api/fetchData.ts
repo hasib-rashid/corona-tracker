@@ -7,6 +7,8 @@ async function fetchData(url: string) {
 
     resJson.forEach((item: any) => {
         fillmapCases(mapCases, item);
+        fillmapDeaths(mapDeaths, item);
+        fillmapRecoveries(mapRecoveries, item);
     });
     return { mapCases, mapDeaths, mapRecoveries };
 }
