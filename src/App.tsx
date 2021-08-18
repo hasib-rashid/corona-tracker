@@ -15,7 +15,7 @@ function App() {
 	const size = useWindowSize();
 	const [currentPage, setCurrentPage] = useState(0);
 
-	let mapData = {};
+	let mapCases = {};
 	let diseaseData = {};
 
 	const handlePageChange = (number: number) => {
@@ -23,16 +23,15 @@ function App() {
 	};
 
 	useEffect(() => {
-		const resultFetch = fetchData(url).then((res) => {
-			// @ts-ignore
-			console.log(res)
+		const resultFetch = fetchData(disease).then((res) => {
 			// @ts-ignore
 			setLocation(res)
 		});
 	}, [count]);
 
+
 	// @ts-ignore
-	mapData = location && location.mapData ? location.mapData : undefined;
+	mapCases = location && location.mapCases ? location.mapCases : undefined;
 
 	if (location) {
 		if (isMobile) {
@@ -41,7 +40,7 @@ function App() {
 					<div className="topRateAndMap">
 						<Map
 							handleClick={handleClick}
-							mapData={mapData}
+							mapCases={mapCases}
 							diseaseData={diseaseData}
 							size={size}
 						/>
@@ -54,7 +53,8 @@ function App() {
 				<div className="topRateAndMap">
 					<Map
 						handleClick={handleClick}
-						mapData={mapData}
+						mapCases={mapCases}
+						diseaseData={diseaseData}
 						size={size}
 					/>
 				</div>
@@ -64,6 +64,12 @@ function App() {
 		// @ts-ignore
 		return <UncontrolledLottie size={size} />;
 	}
+}
+
+async function getData() {
+	const fetch = await axios.get(`https://disease.sh/v3/covid-19/countries/`)
+
+	return await fetch.data
 }
 
 export default App;

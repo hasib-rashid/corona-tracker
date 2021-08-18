@@ -1,19 +1,19 @@
 async function fetchData(url: string) {
     const res = await fetch(url); //here we just connect to server
     const resJson = await res.json(); // read body response in asynch way
-    const mapData = {};
+    const mapCases = {};
 
-    resJson.locations.forEach((item: any) => {
-        fillMapData(mapData, item);
+    resJson.forEach((item: any) => {
+        fillmapCases(mapCases, item);
     });
-    return { mapData };
+    return { mapCases };
 }
 
-function fillMapData(mapData: any, item: any) {
-    if (mapData[item.country_code]) {
-        mapData[item.country_code] += item.latest.confirmed;
+function fillmapCases(mapCases: any, item: any) {
+    if (mapCases[item.countryInfo.iso2]) {
+        mapCases[item.countryInfo.iso2] += item.cases;
     } else {
-        mapData[item.country_code] = item.latest.confirmed;
+        mapCases[item.countryInfo.iso2] = item.cases;
     }
 }
 

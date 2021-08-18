@@ -1,16 +1,9 @@
-import axios from "axios";
-import React, { useEffect, useState } from "react";
+import React from "react";
 // @ts-ignore
 import { VectorMap } from "react-jvectormap";
 import "./map.css";
 
 export default function Map(props: any) {
-    const [countryData, setCountryData] = useState({})
-
-    let hoveredOn: any
-
-
-
     return (
         <div className="map-container">
             <VectorMap
@@ -41,19 +34,21 @@ export default function Map(props: any) {
                     selectedHover: {},
                 }}
                 regionsSelectable={true}
-                onRegionTipShow={async (e: any, el: any, code: any) => {
+                onRegionTipShow={(e: any, el: any, code: any) => {
+                    const data = props.mapCases[code];
+                    console.log(props)
                     return el.html(
                         "<b>" +
                         el.html() +
                         "</b></br>" +
                         "<b> confirmed cases: </b>" +
-                        getData(code)
+                        (data ? data : 0)
                     );
                 }}
                 series={{
                     regions: [
                         {
-                            values: props.mapData, //this is your data
+                            values: props.mapCases, //this is your data
                             scale: ["#FEE5D9", "#A50F15"], //your color game's here
                             normalizeFunction: "polynomial",
                         },
@@ -63,10 +58,4 @@ export default function Map(props: any) {
             {/* <div className="title">Number Of Confirmed Cases All Over The World</div> */}
         </div>
     );
-}
-
-async function getData(code: string) {
-    const fetch = await axios.get(`https://disease.sh/v3/covid-19/countries/${code}`)
-
-    console.log(fetch.data)
 }
