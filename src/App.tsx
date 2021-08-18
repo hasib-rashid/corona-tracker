@@ -60,6 +60,8 @@ function App() {
 					<Map
 						handleClick={handleClick}
 						mapCases={mapCases}
+						mapDeaths={mapDeaths}
+						mapRecoveries={mapRecoveries}
 						size={size}
 					/>
 				</div>
