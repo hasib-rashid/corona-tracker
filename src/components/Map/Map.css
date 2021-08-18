@@ -1,0 +1,9 @@
+.map-container{
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+.title{
+    text-align: center;
+    padding-top: 20;
+}
