@@ -43,9 +43,9 @@ export default function Map(props: any) {
                         "<b>" +
                         el.html() +
                         "</b></br>" +
-                        "<b> confirmed cases: </b>" +
-                        (dataCases ? dataCases : 0) + "</br>" +
-                        (dataDeaths ? dataDeaths : 0) + "</br>" +
+                        "<b>Confirmed: </b>" +
+                        (dataCases ? dataCases : 0) + "</br><b>Deceased: </b> " +
+                        (dataDeaths ? dataDeaths : 0) + "</br><b> Recovered: </b>" +
                         (dataRecoveries ? dataRecoveries : 0) + "</br>"
                     );
                 }}
@@ -53,7 +53,7 @@ export default function Map(props: any) {
                     regions: [
                         {
                             values: props.mapCases, //this is your data
-                            scale: ["#FEE5D9", "#A50F15"], //your color game's here
+                            scale: ["#E5D1F9", "#5606A5"], //your color game's here
                             normalizeFunction: "polynomial",
                         },
                     ],
