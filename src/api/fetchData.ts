@@ -17,4 +17,20 @@ function fillmapCases(mapCases: any, item: any) {
     }
 }
 
+function fillmapDeaths(mapCases: any, item: any) {
+    if (mapCases[item.countryInfo.iso2]) {
+        mapCases[item.countryInfo.iso2] += item.cases;
+    } else {
+        mapCases[item.countryInfo.iso2] = item.cases;
+    }
+}
+
+function fillmapRecoveries(mapCases: any, item: any) {
+    if (mapCases[item.countryInfo.iso2]) {
+        mapCases[item.countryInfo.iso2] += item.cases;
+    } else {
+        mapCases[item.countryInfo.iso2] = item.cases;
+    }
+}
+
 export default fetchData;
