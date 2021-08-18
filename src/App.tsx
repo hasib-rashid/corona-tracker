@@ -32,6 +32,10 @@ function App() {
 
 	// @ts-ignore
 	mapCases = location && location.mapCases ? location.mapCases : undefined;
+	// @ts-ignore
+	mapDeaths = location && location.mapDeaths ? location.mapDeaths : undefined;
+	// @ts-ignore
+	mapRecoveries = location && location.mapRecoveries ? location.mapRecoveries : undefined;
 
 	if (location) {
 		if (isMobile) {
