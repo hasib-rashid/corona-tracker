@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import fetchData from './api/fetchData';
-import { url } from './api/utilities';
+import axios from 'axios';
+import { disease, url } from './api/utilities';
 import Map from './components/Map/Map';
 import UncontrolledLottie from './components/UncontrolledLottie';
 import { useWindowSize } from './hooks/useWindowSize';
@@ -15,27 +16,23 @@ function App() {
 	const [currentPage, setCurrentPage] = useState(0);
 
 	let mapData = {};
-	let chartData = {};
-	let tableData = [];
-	let topRate = [];
+	let diseaseData = {};
 
 	const handlePageChange = (number: number) => {
 		setCurrentPage(number); // set currentPage number, to reset it from the previous selected.
 	};
 
 	useEffect(() => {
-		// @ts-ignore
-		const resultFetch = fetchData(url).then((res) => setLocation(res));
+		const resultFetch = fetchData(url).then((res) => {
+			// @ts-ignore
+			console.log(res)
+			// @ts-ignore
+			setLocation(res)
+		});
 	}, [count]);
 
 	// @ts-ignore
 	mapData = location && location.mapData ? location.mapData : undefined;
-	// @ts-ignore
-	chartData = location && location.chartData ? location.chartData : undefined;
-	// @ts-ignore
-	tableData = location && location.tableData ? location.tableData : undefined;
-	// @ts-ignore
-	topRate = location && location.topRate ? location.topRate : undefined;
 
 	if (location) {
 		if (isMobile) {
@@ -45,6 +42,7 @@ function App() {
 						<Map
 							handleClick={handleClick}
 							mapData={mapData}
+							diseaseData={diseaseData}
 							size={size}
 						/>
 					</div>

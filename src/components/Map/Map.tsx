@@ -1,9 +1,16 @@
-import React from "react";
+import axios from "axios";
+import React, { useEffect } from "react";
 // @ts-ignore
 import { VectorMap } from "react-jvectormap";
 import "./map.css";
 
 export default function Map(props: any) {
+    useEffect(() => {
+        axios.get("https://disease.sh/v3/covid-19/countries/BD").then((res) => {
+            console.log(res.data)
+        })
+    })
+
     return (
         <div className="map-container">
             <VectorMap
@@ -36,11 +43,14 @@ export default function Map(props: any) {
                 regionsSelectable={true}
                 onRegionTipShow={(e: any, el: any, code: any) => {
                     const data = props.mapData[code];
+                    const diseaseData = props.diseaseData
+                    console.log(diseaseData)
                     return el.html(
                         "<b>" +
                         el.html() +
                         "</b></br>" +
-                        "<b> confirmed cases: </b>"
+                        "<b> confirmed cases: </b>" +
+                        (data ? data : 0)
                     );
                 }}
                 series={{
