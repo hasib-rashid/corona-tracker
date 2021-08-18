@@ -15,8 +15,9 @@ function App() {
 	const size = useWindowSize();
 	const [currentPage, setCurrentPage] = useState(0);
 
-	let mapCases = {};
-	let diseaseData = {};
+	let mapCases = {}
+	let mapDeaths = {}
+	let mapRecoveries = {}
 
 	const handlePageChange = (number: number) => {
 		setCurrentPage(number); // set currentPage number, to reset it from the previous selected.
@@ -45,7 +46,8 @@ function App() {
 						<Map
 							handleClick={handleClick}
 							mapCases={mapCases}
-							diseaseData={diseaseData}
+							mapDeaths={mapDeaths}
+							mapRecoveries={mapRecoveries}
 							size={size}
 						/>
 					</div>
@@ -58,7 +60,6 @@ function App() {
 					<Map
 						handleClick={handleClick}
 						mapCases={mapCases}
-						diseaseData={diseaseData}
 						size={size}
 					/>
 				</div>
