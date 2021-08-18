@@ -1,15 +1,15 @@
 import axios from "axios";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 // @ts-ignore
 import { VectorMap } from "react-jvectormap";
 import "./map.css";
 
 export default function Map(props: any) {
-    useEffect(() => {
-        axios.get("https://disease.sh/v3/covid-19/countries/BD").then((res) => {
-            console.log(res.data)
-        })
-    })
+    const [countryData, setCountryData] = useState({})
+
+    let hoveredOn: any
+
+
 
     return (
         <div className="map-container">
@@ -41,16 +41,13 @@ export default function Map(props: any) {
                     selectedHover: {},
                 }}
                 regionsSelectable={true}
-                onRegionTipShow={(e: any, el: any, code: any) => {
-                    const data = props.mapData[code];
-                    const diseaseData = props.diseaseData
-                    console.log(diseaseData)
+                onRegionTipShow={async (e: any, el: any, code: any) => {
                     return el.html(
                         "<b>" +
                         el.html() +
                         "</b></br>" +
                         "<b> confirmed cases: </b>" +
-                        (data ? data : 0)
+                        getData(code)
                     );
                 }}
                 series={{
@@ -66,4 +63,10 @@ export default function Map(props: any) {
             {/* <div className="title">Number Of Confirmed Cases All Over The World</div> */}
         </div>
     );
+}
+
+async function getData(code: string) {
+    const fetch = await axios.get(`https://disease.sh/v3/covid-19/countries/${code}`)
+
+    console.log(fetch.data)
 }
