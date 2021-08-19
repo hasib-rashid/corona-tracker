@@ -38,7 +38,6 @@ export default function Map(props: any) {
                     const dataCases = props.mapCases[code];
                     const dataDeaths = props.mapDeaths[code];
                     const dataRecoveries = props.mapRecoveries[code];
-                    console.log(props)
                     return el.html(
                         "<b>" +
                         el.html() +

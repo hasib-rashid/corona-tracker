@@ -19,3 +19,12 @@ body {
 	justify-content: center;
 	align-items: center;
 }
+
+.jvectormap-tip {
+	background-color: white;
+	color: black;
+}
+
+.jvectormap-tip .confirmed{
+	color: crimson;
+}
