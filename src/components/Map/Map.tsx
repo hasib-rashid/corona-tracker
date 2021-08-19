@@ -34,6 +34,7 @@ export default function Map(props: any) {
                 onRegionTipShow={(e: any, el: any, code: any) => {
                     const dataCases = props.mapCases[code];
                     const dataDeaths = props.mapDeaths[code];
+                    const dataCritical = props.mapCritical[code];
                     const dataRecoveries = props.mapRecoveries[code];
                     const dataActive = props.mapActive[code]
                     const dataFlags = props.mapFlags[code];
@@ -45,7 +46,7 @@ export default function Map(props: any) {
                         "</b></br>" +
                         `<b>Confirmed: <span class='confirmed'>${formatNumber(dataCases ? dataCases : "Unknown")}<span></b><br>` +
                         `<b>Deceased: <span class='deaths'>${formatNumber(dataDeaths ? dataDeaths : "Unknown")}<span></b><br>` +
-                        `<b>Critical: <span class='critical'>${formatNumber(dataDeaths ? dataDeaths : "Unknown")}<span></b><br>` +
+                        `<b>Critical: <span class='critical'>${formatNumber(dataCritical ? dataCritical : "Unknown")}<span></b><br>` +
                         `<b>Recovered: <span class='recoveries'>${formatNumber(dataRecoveries ? dataRecoveries : "Unknown")}<span></b><br>` +
                         `<b>Active: <span class='active'>${formatNumber(dataActive ? dataActive : "Unknown")}<span></b><br>`
                     );

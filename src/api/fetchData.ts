@@ -16,7 +16,7 @@ async function fetchData(url: string) {
         fillmapFlags(mapFlags, item)
         fillmapActive(mapActive, item)
     });
-    return { mapCases, mapDeaths, mapRecoveries, mapActive, mapFlags };
+    return { mapCases, mapDeaths, mapCritical, mapRecoveries, mapActive, mapFlags };
 }
 
 function fillmapCases(mapCases: any, item: any) {
@@ -38,6 +38,7 @@ function fillmapDeaths(mapDeaths: any, item: any) {
 function fillmapCritical(mapCritical: any, item: any) {
     if (mapCritical[item.countryInfo.iso2]) {
         mapCritical[item.countryInfo.iso2] += item.critical;
+        console.log(item)
     } else {
         mapCritical[item.countryInfo.iso2] = item.critical;
     }

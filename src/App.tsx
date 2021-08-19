@@ -13,6 +13,7 @@ function App() {
 
 	let mapCases = {}
 	let mapDeaths = {}
+	let mapCritical = {}
 	let mapRecoveries = {}
 	let mapFlags = {}
 	let mapActive = {}
@@ -30,6 +31,8 @@ function App() {
 	// @ts-ignore
 	mapDeaths = location && location.mapDeaths ? location.mapDeaths : undefined;
 	// @ts-ignore
+	mapCritical = location && location.mapCritical ? location.mapCritical : undefined;
+	// @ts-ignore
 	mapRecoveries = location && location.mapRecoveries ? location.mapRecoveries : undefined;
 	// @ts-ignore
 	mapActive = location && location.mapActive ? location.mapActive : undefined;
@@ -44,6 +47,7 @@ function App() {
 						<Map
 							mapCases={mapCases}
 							mapDeaths={mapDeaths}
+							mapCritical={mapCritical}
 							mapRecoveries={mapRecoveries}
 							mapActive={mapActive}
 							mapFlags={mapFlags}
@@ -59,6 +63,7 @@ function App() {
 					<Map
 						mapCases={mapCases}
 						mapDeaths={mapDeaths}
+						mapCritical={mapCritical}
 						mapRecoveries={mapRecoveries}
 						mapActive={mapActive}
 						mapFlags={mapFlags}
