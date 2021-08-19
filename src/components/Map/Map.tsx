@@ -28,6 +28,9 @@ export default function Map(props: any) {
                         "fill-opacity": 0.8,
                         cursor: "pointer",
                     },
+                    selected: {
+                        fill: "#7418ca", //color for the clicked country
+                    },
                     selectedHover: {},
                 }}
                 regionsSelectable={true}
@@ -44,10 +47,10 @@ export default function Map(props: any) {
                         `<img class='flag' src='${dataFlags}' alt='Flags' /><br />` +
                         el.html() +
                         "</b></br>" +
-                        `<b>Confirmed: <span class='confirmed'>${formatNumber(dataCases ? dataCases : "Unknown")}<span></b><br>` +
-                        `<b>Deceased: <span class='deaths'>${formatNumber(dataDeaths ? dataDeaths : "Unknown")}<span></b><br>` +
-                        `<b>Critical: <span class='critical'>${formatNumber(dataCritical ? dataCritical : "Unknown")}<span></b><br>` +
-                        `<b>Recovered: <span class='recoveries'>${formatNumber(dataRecoveries ? dataRecoveries : "Unknown")}<span></b><br>` +
+                        `<b>Confirmed: <span class='confirmed'>${formatNumber(dataCases ? dataCases : "Unknown")}<span></b>` +
+                        `<b>Deceased: <span class='deaths'>${formatNumber(dataDeaths ? dataDeaths : "Unknown")}<span></b>` +
+                        `<b>Critical: <span class='critical'>${formatNumber(dataCritical ? dataCritical : "Unknown")}<span></b>` +
+                        `<b>Recovered: <span class='recoveries'>${formatNumber(dataRecoveries ? dataRecoveries : "Unknown")}<span></b>` +
                         `<b>Active: <span class='active'>${formatNumber(dataActive ? dataActive : "Unknown")}<span></b><br>`
                     );
                 }}
