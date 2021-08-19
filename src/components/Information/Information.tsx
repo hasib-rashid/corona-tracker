@@ -4,7 +4,10 @@ import './Information.css'
 const Information = () => {
     useEffect(() => {
         const fetching = async () => {
+            const res = await fetch("https://disease.sh/v3/covid-19/all/")
+            const resJson = await res.json()
 
+            console.log(resJson)
         }
 
         fetching()
