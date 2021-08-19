@@ -38,8 +38,10 @@ export default function Map(props: any) {
                     const dataCases = props.mapCases[code];
                     const dataDeaths = props.mapDeaths[code];
                     const dataRecoveries = props.mapRecoveries[code];
+                    const dataFlags = props.mapFlags[code];
                     return el.html(
                         "<b>" +
+                        `<img class='flag' src='${dataFlags}' alt='Flags' /><br />` +
                         el.html() +
                         "</b></br>" +
                         "<b>Confirmed: </b>" +

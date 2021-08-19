@@ -14,6 +14,7 @@ function App() {
 	let mapCases = {}
 	let mapDeaths = {}
 	let mapRecoveries = {}
+	let mapFlags = {}
 
 
 	useEffect(() => {
@@ -30,6 +31,8 @@ function App() {
 	mapDeaths = location && location.mapDeaths ? location.mapDeaths : undefined;
 	// @ts-ignore
 	mapRecoveries = location && location.mapRecoveries ? location.mapRecoveries : undefined;
+	// @ts-ignore
+	mapFlags = location && location.mapFlags ? location.mapFlags : undefined;
 
 	if (location) {
 		if (isMobile) {
@@ -40,6 +43,7 @@ function App() {
 							mapCases={mapCases}
 							mapDeaths={mapDeaths}
 							mapRecoveries={mapRecoveries}
+							mapFlags={mapFlags}
 							size={size}
 						/>
 					</div>
@@ -53,6 +57,7 @@ function App() {
 						mapCases={mapCases}
 						mapDeaths={mapDeaths}
 						mapRecoveries={mapRecoveries}
+						mapFlags={mapFlags}
 						size={size}
 					/>
 				</div>

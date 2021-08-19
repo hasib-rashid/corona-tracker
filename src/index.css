@@ -21,10 +21,19 @@ body {
 }
 
 .jvectormap-tip {
-	background-color: white;
-	color: black;
+	background-color: #222;
+	color: white;
+	display: flex;
+	flex-direction: column;
+	padding: 20px;
+	align-items: center;
+	justify-content: center;
 }
 
-.jvectormap-tip .confirmed{
+.jvectormap-tip .confirmed {
 	color: crimson;
+}
+
+.jvectormap-tip .flag {
+	width: 60px;
 }
