@@ -5,14 +5,16 @@ async function fetchData(url: string) {
     const mapDeaths = {}
     const mapRecoveries = {}
     const mapFlags = {}
+    const mapActive = {}
 
     resJson.forEach((item: any) => {
         fillmapCases(mapCases, item);
         fillmapDeaths(mapDeaths, item);
         fillmapRecoveries(mapRecoveries, item);
         fillmapFlags(mapFlags, item)
+        fillmapActive(mapActive, item)
     });
-    return { mapCases, mapDeaths, mapRecoveries, mapFlags };
+    return { mapCases, mapDeaths, mapRecoveries, mapActive, mapFlags };
 }
 
 function fillmapCases(mapCases: any, item: any) {
@@ -36,6 +38,14 @@ function fillmapRecoveries(mapRecoveries: any, item: any) {
         mapRecoveries[item.countryInfo.iso2] += item.recovered;
     } else {
         mapRecoveries[item.countryInfo.iso2] = item.recovered;
+    }
+}
+
+function fillmapActive(mapActive: any, item: any) {
+    if (mapActive[item.countryInfo.iso2]) {
+        mapActive[item.countryInfo.iso2] += item.active;
+    } else {
+        mapActive[item.countryInfo.iso2] = item.active;
     }
 }
 
