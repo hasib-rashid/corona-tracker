@@ -38,6 +38,10 @@ body {
 	color: crimson;
 }
 
+.jvectormap-tip .critical {
+	color: orange;
+}
+
 .jvectormap-tip .recoveries {
 	color: lime;
 }

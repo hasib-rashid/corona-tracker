@@ -45,6 +45,7 @@ export default function Map(props: any) {
                         "</b></br>" +
                         `<b>Confirmed: <span class='confirmed'>${formatNumber(dataCases ? dataCases : "Unknown")}<span></b><br>` +
                         `<b>Deceased: <span class='deaths'>${formatNumber(dataDeaths ? dataDeaths : "Unknown")}<span></b><br>` +
+                        `<b>Critical: <span class='critical'>${formatNumber(dataDeaths ? dataDeaths : "Unknown")}<span></b><br>` +
                         `<b>Recovered: <span class='recoveries'>${formatNumber(dataRecoveries ? dataRecoveries : "Unknown")}<span></b><br>` +
                         `<b>Active: <span class='active'>${formatNumber(dataActive ? dataActive : "Unknown")}<span></b><br>`
                     );
