@@ -19,12 +19,19 @@ const Information = () => {
         <article>
             <h2>WorldWide</h2>
             <div className="info_row">
-                <h3>Confirmed: <span className="confirmed">{response.cases}</span></h3>
-                <h3>Deaths: <span className="deaths">94832842</span></h3>
-                <h3>Recovered: <span className="recovered">4328748242080</span></h3>
+                <h3>Confirmed: <span className="confirmed">{formatNumber(response.cases)}</span></h3>
+                <h3>Deaths: <span className="deaths">{formatNumber(response.deaths)}</span></h3>
+                <h3>Recovered: <span className="recovered">{formatNumber(response.recovered)}</span></h3>
             </div>
         </article>
     )
 }
 
 export default Information
+
+function formatNumber(number: string, minimumFractionDigits = 0) {
+    return Number.parseFloat(number).toLocaleString(undefined, {
+        minimumFractionDigits,
+        maximumFractionDigits: 2,
+    });
+}
