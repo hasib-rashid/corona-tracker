@@ -5,6 +5,7 @@ import Map from './components/Map/Map';
 import UncontrolledLottie from './components/UncontrolledLottie';
 import { useWindowSize } from './hooks/useWindowSize';
 import { isMobile } from 'react-device-detect'
+import Header from './components/Header/Header';
 
 function App() {
 	const [location, setLocation] = useState();
@@ -44,6 +45,7 @@ function App() {
 			return (
 				<div>
 					<div className="topRateAndMap">
+						<Header />
 						<Map
 							mapCases={mapCases}
 							mapDeaths={mapDeaths}
@@ -60,6 +62,7 @@ function App() {
 		return (
 			<div className="app-container">
 				<div className="topRateAndMap">
+					<Header />
 					<Map
 						mapCases={mapCases}
 						mapDeaths={mapDeaths}
