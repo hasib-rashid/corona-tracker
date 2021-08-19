@@ -42,6 +42,10 @@ body {
 	color: lime;
 }
 
+.jvectormap-tip .active {
+	color: yellow;
+}
+
 .jvectormap-tip .flag {
 	width: 60px;
 }

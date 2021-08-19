@@ -35,6 +35,7 @@ export default function Map(props: any) {
                     const dataCases = props.mapCases[code];
                     const dataDeaths = props.mapDeaths[code];
                     const dataRecoveries = props.mapRecoveries[code];
+                    const dataActive = props.mapActive[code]
                     const dataFlags = props.mapFlags[code];
                     return el.html(
                         "<br />" +
@@ -42,9 +43,10 @@ export default function Map(props: any) {
                         `<img class='flag' src='${dataFlags}' alt='Flags' /><br />` +
                         el.html() +
                         "</b></br>" +
-                        `<b>Confirmed: <span class='confirmed'>${(dataCases ? dataCases : 0)}<span></b><br>` +
-                        `<b>Deceased: <span class='deaths'>${(dataDeaths ? dataDeaths : 0)}<span></b><br>` +
-                        `<b>Recovered: <span class='recoveries'>${(dataRecoveries ? dataRecoveries : 0)}<span></b><br>`
+                        `<b>Confirmed: <span class='confirmed'>${formatNumber(dataCases ? dataCases : "Unknown")}<span></b><br>` +
+                        `<b>Deceased: <span class='deaths'>${formatNumber(dataDeaths ? dataDeaths : "Unknown")}<span></b><br>` +
+                        `<b>Recovered: <span class='recoveries'>${formatNumber(dataRecoveries ? dataRecoveries : "Unknown")}<span></b><br>` +
+                        `<b>Active: <span class='active'>${formatNumber(dataActive ? dataActive : "Unknown")}<span></b><br>`
                     );
                 }}
                 series={{
@@ -57,7 +59,13 @@ export default function Map(props: any) {
                     ],
                 }}
             />
-            {/* <div className="title">Number Of Confirmed Cases All Over The World</div> */}
         </div>
     );
+}
+
+function formatNumber(number: string, minimumFractionDigits = 0) {
+    return Number.parseFloat(number).toLocaleString(undefined, {
+        minimumFractionDigits,
+        maximumFractionDigits: 2,
+    });
 }
