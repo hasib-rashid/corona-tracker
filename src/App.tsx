@@ -1,35 +1,28 @@
 import React, { useEffect, useState } from 'react';
 import fetchData from './api/fetchData';
-import axios from 'axios';
-import { disease, url } from './api/utilities';
+import { disease } from './api/utilities';
 import Map from './components/Map/Map';
 import UncontrolledLottie from './components/UncontrolledLottie';
 import { useWindowSize } from './hooks/useWindowSize';
 import { isMobile } from 'react-device-detect'
 
-const handleClick = (e: any, countryCode: any) => { };
-
 function App() {
 	const [location, setLocation] = useState();
-	const [count, setCount] = useState(0);
+	const [count] = useState(0);
 	const size = useWindowSize();
-	const [currentPage, setCurrentPage] = useState(0);
 
 	let mapCases = {}
 	let mapDeaths = {}
 	let mapRecoveries = {}
 
-	const handlePageChange = (number: number) => {
-		setCurrentPage(number); // set currentPage number, to reset it from the previous selected.
-	};
 
 	useEffect(() => {
-		const resultFetch = fetchData(disease).then((res) => {
+		// eslint-disable-next-line
+		fetchData(disease).then((res) => {
 			// @ts-ignore
 			setLocation(res)
 		});
 	}, [count]);
-
 
 	// @ts-ignore
 	mapCases = location && location.mapCases ? location.mapCases : undefined;
@@ -44,7 +37,6 @@ function App() {
 				<div>
 					<div className="topRateAndMap">
 						<Map
-							handleClick={handleClick}
 							mapCases={mapCases}
 							mapDeaths={mapDeaths}
 							mapRecoveries={mapRecoveries}
@@ -58,7 +50,6 @@ function App() {
 			<div className="app-container">
 				<div className="topRateAndMap">
 					<Map
-						handleClick={handleClick}
 						mapCases={mapCases}
 						mapDeaths={mapDeaths}
 						mapRecoveries={mapRecoveries}
@@ -71,12 +62,6 @@ function App() {
 		// @ts-ignore
 		return <UncontrolledLottie size={size} />;
 	}
-}
-
-async function getData() {
-	const fetch = await axios.get(`https://disease.sh/v3/covid-19/countries/`)
-
-	return await fetch.data
 }
 
 export default App;
