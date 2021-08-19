@@ -6,6 +6,7 @@ import UncontrolledLottie from './components/UncontrolledLottie';
 import { useWindowSize } from './hooks/useWindowSize';
 import { isMobile } from 'react-device-detect'
 import Header from './components/Header/Header';
+import Information from './components/Information/Information';
 
 function App() {
 	const [location, setLocation] = useState();
@@ -72,6 +73,7 @@ function App() {
 						mapFlags={mapFlags}
 						size={size}
 					/>
+					<Information />
 				</div>
 			</div>
 		);

@@ -12,12 +12,11 @@ body {
 }
 
 .map-container {
-	height: 90vh;
+	height: 70vh;
 	width: 100vw;
 	display: flex;
 	flex-direction: column;
-	justify-content: center;
-	align-items: center;
+	margin-top: 12px;
 }
 
 .header {
