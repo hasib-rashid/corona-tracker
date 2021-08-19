@@ -1,0 +1,39 @@
+article {
+    background-color: blueviolet;
+    color: #222;
+    border-radius: 10px;
+    margin-top: 5vh;
+    width: 70vw;
+    margin: auto;
+}
+
+h2 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 10px;
+}
+
+.info_row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+}
+
+.info_row h3 {
+    margin-left: 3%;
+    margin-right: 3%;
+}
+
+.confirmed {
+    color: skyblue;
+}
+
+.deaths {
+    color: crimson;
+}
+
+.recovered {
+    color: lime;
+}

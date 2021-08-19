@@ -12,7 +12,7 @@ export default function Map(props: any) {
                 zoomOnScroll={true}
                 containerStyle={{
                     width: "100%",
-                    height: "70vh",
+                    height: "65vh",
                 }}
                 onRegionClick={props.handleClick} //gets the country code
                 containerClassName="map"

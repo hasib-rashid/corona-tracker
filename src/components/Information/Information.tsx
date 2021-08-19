@@ -1,13 +1,14 @@
 import React from 'react'
+import './Information.css'
 
 const Information = () => {
     return (
         <article>
             <h2>WorldWide</h2>
             <div className="info_row">
-                <h3>Confirmed: 32498327874327</h3>
-                <h3>Deaths: 94832842</h3>
-                <h3>Recovered: 4328748242080</h3>
+                <h3>Confirmed: <span className="confirmed">32498327874327</span></h3>
+                <h3>Deaths: <span className="deaths">94832842</span></h3>
+                <h3>Recovered: <span className="recovered">4328748242080</span></h3>
             </div>
         </article>
     )
