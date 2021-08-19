@@ -1,7 +1,15 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import './Information.css'
 
 const Information = () => {
+    useEffect(() => {
+        const fetching = async () => {
+
+        }
+
+        fetching()
+    }, [])
+
     return (
         <article>
             <h2>WorldWide</h2>
