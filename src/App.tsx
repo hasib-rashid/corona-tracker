@@ -15,7 +15,7 @@ function App() {
 	let mapDeaths = {}
 	let mapRecoveries = {}
 	let mapFlags = {}
-
+	let mapActive = {}
 
 	useEffect(() => {
 		// eslint-disable-next-line
@@ -32,6 +32,8 @@ function App() {
 	// @ts-ignore
 	mapRecoveries = location && location.mapRecoveries ? location.mapRecoveries : undefined;
 	// @ts-ignore
+	mapActive = location && location.mapActive ? location.mapActive : undefined;
+	// @ts-ignore
 	mapFlags = location && location.mapFlags ? location.mapFlags : undefined;
 
 	if (location) {
@@ -43,6 +45,7 @@ function App() {
 							mapCases={mapCases}
 							mapDeaths={mapDeaths}
 							mapRecoveries={mapRecoveries}
+							mapActive={mapActive}
 							mapFlags={mapFlags}
 							size={size}
 						/>
@@ -57,6 +60,7 @@ function App() {
 						mapCases={mapCases}
 						mapDeaths={mapDeaths}
 						mapRecoveries={mapRecoveries}
+						mapActive={mapActive}
 						mapFlags={mapFlags}
 						size={size}
 					/>
