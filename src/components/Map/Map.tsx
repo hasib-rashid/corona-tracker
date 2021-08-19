@@ -28,9 +28,6 @@ export default function Map(props: any) {
                         "fill-opacity": 0.8,
                         cursor: "pointer",
                     },
-                    selected: {
-                        fill: "#2938bc", //color for the clicked country
-                    },
                     selectedHover: {},
                 }}
                 regionsSelectable={true}
@@ -40,14 +37,14 @@ export default function Map(props: any) {
                     const dataRecoveries = props.mapRecoveries[code];
                     const dataFlags = props.mapFlags[code];
                     return el.html(
+                        "<br />" +
                         "<b>" +
                         `<img class='flag' src='${dataFlags}' alt='Flags' /><br />` +
                         el.html() +
                         "</b></br>" +
-                        "<b>Confirmed: </b>" +
-                        (dataCases ? dataCases : 0) + "</br><b>Deceased: </b> " +
-                        (dataDeaths ? dataDeaths : 0) + "</br><b> Recovered: </b>" +
-                        (dataRecoveries ? dataRecoveries : 0) + "</br>"
+                        `<b>Confirmed: <span class='confirmed'>${(dataCases ? dataCases : 0)}<span></b><br>` +
+                        `<b>Deceased: <span class='deaths'>${(dataDeaths ? dataDeaths : 0)}<span></b><br>` +
+                        `<b>Recovered: <span class='recoveries'>${(dataRecoveries ? dataRecoveries : 0)}<span></b><br>`
                     );
                 }}
                 series={{

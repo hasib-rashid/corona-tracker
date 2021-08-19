@@ -21,17 +21,25 @@ body {
 }
 
 .jvectormap-tip {
-	background-color: #222;
+	background-color: blueviolet;
 	color: white;
 	display: flex;
 	flex-direction: column;
-	padding: 20px;
 	align-items: center;
+	padding: 0 20px;
 	justify-content: center;
 }
 
 .jvectormap-tip .confirmed {
+	color: skyblue;
+}
+
+.jvectormap-tip .deaths {
 	color: crimson;
+}
+
+.jvectormap-tip .recoveries {
+	color: lime;
 }
 
 .jvectormap-tip .flag {
