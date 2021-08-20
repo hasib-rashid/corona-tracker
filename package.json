@@ -1,6 +1,5 @@
 {
   "name": "corona-tracker",
-  "homepage": "https://github.com/hasib-rashid/corona-tracker.git",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
