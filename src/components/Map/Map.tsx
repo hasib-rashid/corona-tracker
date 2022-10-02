@@ -1,7 +1,6 @@
 import React from "react";
 // @ts-ignore
 import { VectorMap } from "react-jvectormap";
-import "./map.css";
 
 export default function Map(props: any) {
     return (
